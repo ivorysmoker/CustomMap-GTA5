@@ -1,0 +1,164 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+.container
+{
+	float: left;
+	width: 1365px;	
+	margin: 0;
+	padding: 0;
+    /* chrome browser fixx
+	will-change: transform;*/
+}
+
+.maparea
+{
+	float: left;
+	width: auto;
+	height: auto;	
+	overflow: hidden;
+}
+
+#maparea
+{
+	background: url("images/map.jpg");
+	background-size:100%;
+	width: 1365px;
+	height: 1365px;
+	position: relative;
+	background-repeat: no-repeat;
+	transform-origin: top left;
+	-webkit-transition: top 500ms ease;
+}
+
+.map
+{
+	height: auto;
+}
+
+.menu
+{	
+	width: 100%;
+	height: 75px;
+	position: fixed;	
+	background-color: white;
+	border: 2px solid blue;
+	border-left: 0;
+	border-right: 0;
+	margin: 0 auto;
+	z-index: 100;
+}
+
+.menubuttons
+{
+	float: left;
+	margin-left: 55px;
+	margin-top: 10px;
+}
+
+.infoContainer
+{
+	width: 350px;
+	z-index: 1;
+}
+
+.strukturContainer
+{
+	width: 350px;
+	z-index: 1;
+	transform-origin: top left;
+}
+
+.infotitel
+{
+	float: left;
+	width: 346px;
+	height: 30px;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	background-color: yellow;
+	text-align: center;
+	z-index: 1;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.bildcontainer
+{
+	float: left;
+	width: 346px;
+	height: 100px;
+	background-color: red;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	z-index: 1;
+}
+
+.infobild
+{
+	float: left;
+	width: 33%;
+	height: 100%;	
+	z-index: 1;
+}
+
+
+.infobeschreibung
+{
+	width: 346px;
+	height: 300px;
+	float: left;
+	background-color: green;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	z-index: 1;
+	font-size: 1;
+	white-space: pre-wrap;
+}
+
+textarea
+{
+	max-width: 100%;
+	max-height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 1;
+}
+
+#MarkerBox , #InfoBox
+{
+	height: 100%;
+	width: 100%;
+}
+
+.UserInputBox
+{
+	width: 350px;
+	position: absolute;
+	background: #00d2ff; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #00d2ff, #3a7bd5); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #00d2ff, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	margin-top: 100px;
+}
+
+.UserInputBoxSettings
+{
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.UserInputBox, .UserInputBoxSettings
+{
+	border-radius: 15px;
+}
+
+.infobild > img {
+    width: 100%;
+    height: auto;
+}
+
+
