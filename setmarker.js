@@ -186,6 +186,7 @@ $(document).ready( function() {
 			else if($(this).attr("id") == "btn5")
             {
                 currentSelection = 5;
+				alert("blub");
             }
         });
     });
