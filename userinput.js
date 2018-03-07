@@ -6,8 +6,6 @@ $(document).ready( function()
 	var linkID = 0;
 	var imageCountSelection = 1;
 	
-	var bildID = 0;
-	
 	saveUserInputBoxToInfoBox = function()
 	{
 		if(markerID != null && editMode == 1)
@@ -35,30 +33,27 @@ $(document).ready( function()
 			});
 			
 			//Bilder
-			
-			//Hole alle elemente
-			$(".linkInputClass").each(function()
+			$("#InputLinkBox input").each(function()
 			{
-				var imageTarget = $(this).val();
+					var imageTarget = $(this).val();
+					
+					//Baue das Bilder element
+					var div = $("<div />", {
+						class: "infobild"
+					});
+					
+					var img = $("<img />", {
+						src: ""+imageTarget+"",
+						alt: "Unbekanntes Bild"
+					});
+					//Füge das Img hinzu..
+					img.appendTo(div);
 				
-				//Baue das Bilder element
-				var div = $("<div />", {
-					class: "infobild " + "bildID" + markerID					
-				});
-
-				var img = $("<img />", {
-					src: ""+imageTarget+"",
-					alt: "Unbekanntes Bild"
-				});
-				//Füge das Img hinzu..
-				img.appendTo(div);
-				div.appendTo($(".bildcontainer"));
-				
+					div.appendTo($(".bildcontainer").eq(markerID));
 			});
 			
 		}		
 	}
-
 	
 	loadUserInputBox = function()
 	{
@@ -84,8 +79,7 @@ $(document).ready( function()
 			}
 			index++;
 			if(markerID >= index){ return; }
-		});		
-		
+		});	
 	}
 	
 	$("#imageCountSelection").change(function(){

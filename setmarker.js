@@ -33,16 +33,11 @@ $(document).ready( function() {
 
                         markerID = e.target.id.replace('Marker_', '');  
 						
-						
-							//update();
-						
 						if(currentSelection != 5)
 						{
 							HideInfoBox();
 							ShowInfoBox();	
-							loadUserInputBox();	
-
-							updateImages();	
+							loadUserInputBox();		
 						}                        
                         break;
                     case 2:
@@ -190,7 +185,7 @@ $(document).ready( function() {
             }
 			else if($(this).attr("id") == "btn5")
             {
-                currentSelection = 5;				
+                currentSelection = 5;
             }
         });
     });
@@ -237,10 +232,12 @@ $(document).ready( function() {
             markerCountID++;
             currentSelection = 0;
             markerBindClick();
-		
 			
 			//Ändere kurzzeitig das template...
 			$('.templateinfobox .strukturContainer').css("transform", "scale("+scaleDownRatio / currentZoomLevel+")");
+			//Ändere das Template dauerhaft...
+			
+			//$('.templateinfobox .bildcontainer').attr("id", "bildContainer"+(markerCountID-1));
 			//Füge das Template Hinzu
             $('#InfoBox').append($('.templateinfobox').html()); 
 			//Dazugehörige Eventhandler..
@@ -267,25 +264,5 @@ $(document).ready( function() {
            // HideInfoBox();
         }   	
     });
-	
-		
-	var updateImages = function()
-	{	
-		$(".bildcontainer div").each(function(){
-			
-			$(this).css("visibility", "hidden");
-			
-			//alert($(this).attr("class").replace("infobild bildID", ""));
-			
-			console.log("class: "+ $(this).attr("class").replace("infobild bildID", "") + " markerID: " + markerID);
-			
-			if($(this).attr("class").replace("infobild bildID", "") == markerID)
-			{
-				
-				$(this).css("visibility", "visible");
-				//$(".infobild").css("display", "block");
-			}			
-		});
-	}
 	
 });
