@@ -36,13 +36,16 @@ $(document).ready( function()
 			$(".bildcontainer").eq(markerID).html("");
 			
 			//Build new Images
+			var imageLeft = 0;
 			$("#InputLinkBox input").each(function()
 			{
+				
 					var imageTarget = $(this).val();
 					
 					//Baue das Bilder element
 					var div = $("<div />", {
-						class: "infobild"
+						class: "infobild",
+						style: "left: "+imageLeft+"%"
 					});
 					
 					var img = $("<img />", {
@@ -53,6 +56,9 @@ $(document).ready( function()
 					img.appendTo(div);
 				
 					div.appendTo($(".bildcontainer").eq(markerID));
+					
+					//Hat mich der Aboluten Position inhalb des cointers zutuhen...
+					imageLeft += 33;
 			});
 			
 		}		
