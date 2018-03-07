@@ -33,11 +33,16 @@ $(document).ready( function() {
 
                         markerID = e.target.id.replace('Marker_', '');  
 						
+						
+							//update();
+						
 						if(currentSelection != 5)
 						{
 							HideInfoBox();
 							ShowInfoBox();	
-							loadUserInputBox();		
+							loadUserInputBox();	
+
+							updateImages();	
 						}                        
                         break;
                     case 2:
@@ -232,6 +237,7 @@ $(document).ready( function() {
             markerCountID++;
             currentSelection = 0;
             markerBindClick();
+		
 			
 			//Ändere kurzzeitig das template...
 			$('.templateinfobox .strukturContainer').css("transform", "scale("+scaleDownRatio / currentZoomLevel+")");
@@ -261,5 +267,25 @@ $(document).ready( function() {
            // HideInfoBox();
         }   	
     });
+	
+		
+	var updateImages = function()
+	{	
+		$(".bildcontainer div").each(function(){
+			
+			$(this).css("visibility", "hidden");
+			
+			//alert($(this).attr("class").replace("infobild bildID", ""));
+			
+			console.log("class: "+ $(this).attr("class").replace("infobild bildID", "") + " markerID: " + markerID);
+			
+			if($(this).attr("class").replace("infobild bildID", "") == markerID)
+			{
+				
+				$(this).css("visibility", "visible");
+				//$(".infobild").css("display", "block");
+			}			
+		});
+	}
 	
 });

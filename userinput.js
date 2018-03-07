@@ -6,6 +6,8 @@ $(document).ready( function()
 	var linkID = 0;
 	var imageCountSelection = 1;
 	
+	var bildID = 0;
+	
 	saveUserInputBoxToInfoBox = function()
 	{
 		if(markerID != null && editMode == 1)
@@ -41,9 +43,9 @@ $(document).ready( function()
 				
 				//Baue das Bilder element
 				var div = $("<div />", {
-					class: "infobild"
+					class: "infobild " + "bildID" + markerID					
 				});
-				
+
 				var img = $("<img />", {
 					src: ""+imageTarget+"",
 					alt: "Unbekanntes Bild"
@@ -56,6 +58,7 @@ $(document).ready( function()
 			
 		}		
 	}
+
 	
 	loadUserInputBox = function()
 	{
@@ -81,7 +84,8 @@ $(document).ready( function()
 			}
 			index++;
 			if(markerID >= index){ return; }
-		});	
+		});		
+		
 	}
 	
 	$("#imageCountSelection").change(function(){
