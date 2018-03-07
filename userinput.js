@@ -32,7 +32,10 @@ $(document).ready( function()
 				if(markerID >= index){ return; }
 			});
 			
-			//Bilder
+			//Clear the Images
+			$(".bildcontainer").eq(markerID).html("");
+			
+			//Build new Images
 			$("#InputLinkBox input").each(function()
 			{
 					var imageTarget = $(this).val();
