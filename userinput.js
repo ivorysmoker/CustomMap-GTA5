@@ -90,9 +90,6 @@ $(document).ready( function()
 			if(markerID >= index){ return; }
 		});	
 		
-		var imageLinkInputCount = 0;
-		$(".linkInputClass").length
-		
 		index = 0;
 		$(".bildcontainer").each(function()
 		{
