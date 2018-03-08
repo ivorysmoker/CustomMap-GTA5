@@ -90,49 +90,28 @@ $(document).ready( function()
 			if(markerID >= index){ return; }
 		});	
 		
+		var imageLinkInputCount = 0;
+		$(".linkInputClass").length
 		
 		index = 0;
 		$(".bildcontainer").each(function()
 		{
 			if(markerID == index)
 			{	
+				//Setzt den ImageCOunt auf die derzeitigi Child inhalts grösse
 				$("#imageCountSelection").val($(this).children().length).change();	
+				
 				
 				if($(this).children().length == 0)
 				{
 					$("#imageCountSelection").val('1').change();
 					$("#linkInput0").val("");					
 				}
-								
-				if($(this).children().length == 1)
+						
+				//Wir brauchen immer alle verfügbaren inputs...		
+				for(var x = 0; x < $(".linkInputClass").length; x++)
 				{
-					$("#linkInput0").val($(this).children().eq(0).children().attr("src"));
-				}
-				else if($(this).children().length == 2)
-				{
-					$("#linkInput0").val($(this).children().eq(0).children().attr("src"));
-					$("#linkInput1").val($(this).children().eq(1).children().attr("src"));
-				}
-				else if($(this).children().length == 3)
-				{
-					$("#linkInput0").val($(this).children().eq(0).children().attr("src"));
-					$("#linkInput1").val($(this).children().eq(1).children().attr("src"));
-					$("#linkInput2").val($(this).children().eq(2).children().attr("src"));
-				}
-				else if($(this).children().length == 4)
-				{
-					$("#linkInput0").val($(this).children().eq(0).children().attr("src"));
-					$("#linkInput1").val($(this).children().eq(1).children().attr("src"));
-					$("#linkInput2").val($(this).children().eq(2).children().attr("src"));
-					$("#linkInput3").val($(this).children().eq(3).children().attr("src"));
-				}
-				else if($(this).children().length == 5)
-				{
-					$("#linkInput0").val($(this).children().eq(0).children().attr("src"));
-					$("#linkInput1").val($(this).children().eq(1).children().attr("src"));
-					$("#linkInput2").val($(this).children().eq(2).children().attr("src"));
-					$("#linkInput3").val($(this).children().eq(3).children().attr("src"));
-					$("#linkInput4").val($(this).children().eq(4).children().attr("src"));
+					$(".linkInputClass").children().eq(x).val($(this).children().eq(x).children().attr("src"))
 				}
 			}
 			index++;
