@@ -94,7 +94,7 @@
 	background-color: red;
 	border-left: 2px solid black;
 	border-right: 2px solid black;
-	z-index: 1;
+	z-index: 4;
 }
 
 .infobild
@@ -102,7 +102,8 @@
 	position: absolute;
 	width: 33%;
 	height: 100px;	
-	z-index: 1;
+	z-index: 5;
+	overflow: hidden;
 }
 
 
