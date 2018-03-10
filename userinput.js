@@ -108,7 +108,7 @@ $(document).ready( function()
 				//Wir brauchen immer alle verfügbaren inputs...		
 				for(var x = 0; x < $(".linkInputClass").length; x++)
 				{
-					$(".linkInputClass").children().eq(x).val($(this).children().eq(x).children().attr("src"))
+					$(".linkInputClass").children().eq(x).val($(this).children().eq(x).children().attr("src"));
 				}
 			}
 			index++;
