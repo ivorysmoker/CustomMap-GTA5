@@ -4,17 +4,21 @@
 	$content = filter_input(INPUT_POST, 'cContent', FILTER_SANITIZE_SPECIAL_CHARS);
 	if($content)
 	{
-		
-		//Ist der Code Valide? Oder befindet sich unangebrachtes im Code?
-		
-		
-		//Ab hier müsste man sich sicher sein das kein Code exisitert der nicht dahin gehört! 
-		$content = html_entity_decode($content);
-		
-		$handler = fopen("content.php", "w+");
-		fwrite($handler, $content);
-		fclose($handler);
-		//return;
+		//Wurde ein lehrer HTTP POST request versendet? Dies würde sonst alles löschen...
+		if($content != NULL)
+		{
+			//Ist der Code Valide? Oder befindet sich unangebrachtes im Code?
+			//Erste Schritte: Prüfe ob sich <script> oder <?php tags im code befinden... diese würde aufjedenfall nicht dahin gehören!
+			
+			//Beginne eine suche... hf gl :)
+			preg_match_all("plattern", $content, $output);
+			
+			
+			//Ab hier müsste man sich sicher sein das kein Code exisitert der nicht dahin gehört! 
+			$handler = fopen("content.php", "w+");
+			fwrite($handler, html_entity_decode($content));
+			fclose($handler);
+		}
 	}
 ?>
 <!DOCTYPE html>
