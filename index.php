@@ -1,21 +1,18 @@
 <?php 
-	/* Der Eventhandler submit() sendet das unten aufgeführte FORM per POST methode. */  
-	if($_POST["cContent"])
+	//Wir verwenden hier einen filter um gefährliche Zeichen wie < > umzuwandeln. 
+	//Tut man dies nicht ist es möglich den PHP Code zu injecten.
+	$content = filter_input(INPUT_POST, 'cContent', FILTER_SANITIZE_SPECIAL_CHARS);
+	if($content)
 	{
-		//echo $_POST["bodyTestName"];
-		//Da hier der gesamte Body content kommt der eingefühgt wurde ist hier zwingend notwendig gewisse Dinge zu prüfen
-		//Wenn mann dies nicht macht kann easy eine Datei hochgeladen werden die alle Daten z.b löscht... (inject code)
 		
-		//Es ist zu prüfen ob es sich hier um validen Code handelt!
+		//Ist der Code Valide? Oder befindet sich unangebrachtes im Code?
 		
 		
-		//Speichern der Datei
+		//Ab hier müsste man sich sicher sein das kein Code exisitert der nicht dahin gehört! 
+		$content = html_entity_decode($content);
 		
-		//Öffnet die Datei mit schreib und leserechten...
-		
-		//UNSAVE!!!!!!!!!!!
 		$handler = fopen("content.php", "w+");
-		fwrite($handler, $_POST["cContent"]);
+		fwrite($handler, $content);
 		fclose($handler);
 		//return;
 	}

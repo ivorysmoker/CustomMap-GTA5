@@ -21,8 +21,15 @@ $(document).ready( function() {
 	var documentWidth = $(document).width() - $(window).width();
 	
     var markerBindClick = function()
-    {       
+    {   
+		//Reset current marker CountID's
+		markerCountID  = 0;
+		
         $("#MarkerBox img").each(function(){
+			
+			//Set markerCountID.
+			markerCountID++;
+			
             $(this).off("mousedown").on("mousedown", function(e){
                 switch(e.which)
                 {
@@ -52,6 +59,9 @@ $(document).ready( function() {
         });
     }
 
+	//Bind Handler if content avaible
+	markerBindClick();
+	
     var HideInfoBox = function()
     {
         $('#InfoBox .infoContainer').each(function(){
